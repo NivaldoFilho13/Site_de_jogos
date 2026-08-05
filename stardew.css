@@ -4,6 +4,7 @@ body {
     background-color: #87CEEB;
 }
 
+/* HEADER */
 header {
     background-color: #2e8b57;
     color: white;
@@ -11,13 +12,14 @@ header {
     text-align: center;
 }
 
+/* LAYOUT */
 .container {
     display: flex;
 }
 
+/* SIDEBAR */
 aside {
     width: 200px;
-    background-color: #1f6f43;
     padding: 15px;
 }
 
@@ -33,11 +35,19 @@ aside a:hover {
     color: yellow;
 }
 
+/* CONTEÚDO */
 main {
     flex: 1;
-    padding: 20px;
+    padding: 1%;
+    margin-right: 15%;
 }
 
+article{
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNuvw_-ftkN7COoGicBm4sCHp32yf3kajFU0Wlj_UI6c2PnjZEcyk1JX0A&s=10);
+    background-attachment: fixed;
+}
+
+/* BANNER */
 .banner {
     background-image: url("https://i.imgur.com/VX3KX6v.jpg");
     background-size: cover;
@@ -45,13 +55,16 @@ main {
     border-radius: 10px;
 }
 
+/* CARDS */
 .card {
     background-color: white;
     padding: 15px;
     margin-top: 15px;
     border-radius: 10px;
+    text-align: center;
 }
 
+/* QUADRADOS */
 .area-quadrados {
     display: flex;
     gap: 15px;
@@ -60,8 +73,8 @@ main {
 }
 
 .quadrado {
-    width: 140px;
-    height: 140px;
+    width: 170px;
+    height: 170px;
     background-color: #2e8b57;
     color: white;
     display: flex;
@@ -71,6 +84,14 @@ main {
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
+    margin-left: 9%;
+}
+
+.quadrado img{
+    width: 150px;
+    height: 150px;
+    border: 10px;
+    border-radius: 10px;
 }
 
 .quadrado:hover {
@@ -78,6 +99,7 @@ main {
     transform: scale(1.05);
 }
 
+/* FOOTER */
 footer {
     background-color: #2e8b57;
     color: white;
