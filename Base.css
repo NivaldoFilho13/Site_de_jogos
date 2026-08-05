@@ -1,1 +1,22 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
 
+a{
+    font-style: none;
+    font-family: sans-serif;
+}
+
+header{
+    background-color: blue;
+}
+
+article{
+    background-color: red;
+}
+
+footer{
+    background-color: black;
+    font-style: none;
+}
