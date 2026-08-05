@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plants vs. Zombies | Panorama elegante</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg2:#111827;
+      --card:#111c31cc;
+      --card-border:#2b3857;
+      --text:#e5e7eb;
+      --muted:#b6c2d1;
+      --accent:#7dd3fc;
+      --accent2:#a7f3d0;
+      --warning:#fde68a;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 24px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(125,211,252,.16), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(167,243,208,.12), transparent 55%),
+        linear-gradient(180deg, #0b1220 0%, var(--bg) 45%, #0a1020 100%);
+      line-height:1.7;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:32px 20px 56px;}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(17,24,39,.82), rgba(15,23,42,.72));
+      border:1px solid rgba(125,211,252,.18);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      padding:34px;
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap:28px;
+      align-items:center;
+      backdrop-filter: blur(10px);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -120px -120px auto;
+      width:280px;
+      height:280px;
+      background:radial-gradient(circle, rgba(125,211,252,.18), transparent 65%);
+      pointer-events:none;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:.88rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--accent2);
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(2.1rem, 4vw, 4.1rem);
+      line-height:1.02;
+      letter-spacing:-.04em;
+    }
+    .lead{
+      margin:0;
+      max-width:62ch;
+      color:var(--muted);
+      font-size:1.06rem;
+    }
+    .hero-card{
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      padding:18px;
+    }
+    .hero img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.08);
+      object-fit:cover;
+      aspect-ratio:1/1;
+      background:#0b1220;
+    }
+    .hero-note{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+    .card{
+      grid-column:span 6;
+      background:var(--card);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      backdrop-filter: blur(10px);
+    }
+    .card.full{grid-column:1 / -1;}
+    .card.third{grid-column:span 4;}
+    .card h2, .card h3{
+      margin:0 0 12px;
+      line-height:1.15;
+      letter-spacing:-.03em;
+    }
+    .card h2{font-size:1.35rem;}
+    .card h3{font-size:1.08rem;}
+    p{margin:0 0 12px;}
+    .muted{color:var(--muted)}
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+    .list li{margin:8px 0;}
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(125,211,252,.10);
+      border:1px solid rgba(125,211,252,.16);
+      color:#dbeafe;
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+    .section-title{
+      grid-column:1 / -1;
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:12px;
+      margin-top:10px;
+      padding:0 2px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:1.55rem;
+    }
+    .section-title span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .tag{
+      color:var(--warning);
+      font-weight:700;
+    }
+    .compact p:last-child,
+    .card > *:last-child{margin-bottom:0;}
+    .footer{
+      margin-top:22px;
+      color:var(--muted);
+      font-size:.92rem;
+      text-align:center;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding:24px;}
+      .card, .card.third{grid-column:1 / -1;}
+      .section-title{flex-direction:column; align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero" aria-label="Introdução">
+      <div>
+        <div class="eyebrow">🎮 Clássico da PopCap</div>
+        <h1>Plants vs. Zombies</h1>
+        <p class="lead">
+          Uma franquia de estratégia com identidade muito forte: simples de entender, difícil de dominar e
+          cheia de personalidade. A graça está justamente na combinação entre humor, leitura de campo e
+          tomada de decisão rápida.
+        </p>
+        <div class="pill-row" aria-label="Destaques">
+          <span class="pill">Estratégia em tempo real</span>
+          <span class="pill">Defesa de território</span>
+          <span class="pill">Humor visual</span>
+          <span class="pill">Fases variadas</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="Pvzo.webp" alt="Imagem relacionada a Plants vs. Zombies" />
+        <div class="hero-note">
+          Série criada para ser acessível, mas com espaço real para estratégia — e isso explica por que
+          continua relevante.
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Conteúdo principal">
+      <div class="section-title">
+        <h2>Visão geral</h2>
+        <span>Versão organizada e visualmente limpa</span>
+      </div>
+
+      <article class="card">
+        <h3>Origem</h3>
+        <p>
+          A franquia foi criada pela PopCap Games e lançada em 2009 para PC. O sucesso foi imediato e o jogo
+          rapidamente expandiu para celulares, consoles e outras plataformas.
+        </p>
+        <p class="muted">
+          Em 2011, a Electronic Arts comprou a PopCap e passou a controlar a marca.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>História</h3>
+        <p>
+          O enredo é propositalmente simples e cômico: zumbis tentam invadir sua casa para comer seu cérebro,
+          e você responde posicionando plantas no jardim para barrar o avanço.
+        </p>
+        <p class="muted">
+          Crazy Dave é o vizinho excêntrico que ajuda o jogador, enquanto Dr. Zomboss funciona como o grande
+          antagonista.
+        </p>
+      </article>
+
+      <article class="card third compact">
+        <h3>Como funciona</h3>
+        <ul class="list">
+          <li>Produzir sóis, a moeda do jogo</li>
+          <li>Plantar e organizar defesas</li>
+          <li>Impedir que os zumbis atravessem o jardim</li>
+          <li>Administrar recursos com eficiência</li>
+          <li>Adaptar a estratégia ao tipo de fase</li>
+        </ul>
+      </article>
+
+      <article class="card third compact">
+        <h3>Plantas clássicas</h3>
+        <ul class="list">
+          <li>Girassol — gera sóis</li>
+          <li>Ervilhadora — ataque básico</li>
+          <li>Noz — bloqueio defensivo</li>
+          <li>Batata Explosiva — armadilha</li>
+          <li>Cereja Bomba — dano em área</li>
+        </ul>
+      </article>
+
+      <article class="card third compact">
+        <h3>Zumbis marcantes</h3>
+        <ul class="list">
+          <li>Zumbi comum</li>
+          <li>Zumbi com cone</li>
+          <li>Zumbi com balde</li>
+          <li>Football Zombie</li>
+          <li>Gargantuar</li>
+        </ul>
+      </article>
+
+      <article class="card full">
+        <h3>Ambientes e modos de jogo</h3>
+        <p>
+          Durante a campanha, você passa por cenários que mudam bastante a leitura das fases:
+          <span class="tag">dia</span>, <span class="tag">noite</span>, <span class="tag">piscina</span>,
+          <span class="tag">neblina</span> e <span class="tag">telhado</span>.
+        </p>
+        <p>
+          Além da campanha principal, a série inclui modos como <strong>Survival</strong>,
+          <strong>Puzzle</strong>, <strong>I, Zombie</strong>, <strong>Vasebreaker</strong>,
+          <strong>Minigames</strong> e <strong>Zen Garden</strong>.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Principais jogos da série</h3>
+        <ul class="list">
+          <li><strong>Plants vs. Zombies (2009)</strong> — o clássico original.</li>
+          <li><strong>Plants vs. Zombies 2 (2013)</strong> — trouxe viagens no tempo, novos mundos e novas plantas.</li>
+          <li><strong>Garden Warfare</strong> — mudança completa de estilo para tiro em terceira pessoa.</li>
+          <li><strong>Garden Warfare 2</strong> — ampliou classes e personagens.</li>
+          <li><strong>Battle for Neighborville</strong> — sucessor espiritual com foco online.</li>
+          <li><strong>Plants vs. Zombies Heroes</strong> — versão de cartas colecionáveis.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Curiosidades e impacto</h3>
+        <p>
+          A trilha sonora ficou marcada entre os fãs, e a música <em>There's a Zombie on Your Lawn</em> virou
+          um símbolo da franquia.
+        </p>
+        <p>
+          O jogo ajudou a popularizar o tower defense para um público muito maior, porque equilibra
+          acessibilidade e profundidade tática sem ficar artificialmente complicado.
+        </p>
+      </article>
+
+      <article class="card full">
+        <h3>Por que a série funciona tão bem</h3>
+        <p>
+          O mérito real de Plants vs. Zombies não é só o humor. É o design: regras fáceis de entender,
+          feedback visual claro e dificuldade crescendo na medida certa. Isso cria um jogo que qualquer um
+          consegue começar — mas poucos jogam de forma realmente eficiente.
+        </p>
+      </article>
+    </section>
+
+    <div class="footer">
+      Versão reestruturada para leitura mais limpa, visual mais sofisticado e melhor organização sem
+      perder o conteúdo original.
+    </div>
+  </main>
+</body>
+</html>
 
