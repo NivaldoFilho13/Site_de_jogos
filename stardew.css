@@ -40,22 +40,51 @@ main {
     flex: 1;
     padding: 1%;
     margin-right: 15%;
+    margin-left: 15%;
+    align-items: center;
 }
 
 article{
     background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNuvw_-ftkN7COoGicBm4sCHp32yf3kajFU0Wlj_UI6c2PnjZEcyk1JX0A&s=10);
     background-attachment: fixed;
-}
-
-/* BANNER */
-.banner {
-    background-image: url("https://i.imgur.com/VX3KX6v.jpg");
     background-size: cover;
-    height: 250px;
-    border-radius: 10px;
+
 }
 
-/* CARDS */
+.banner {
+    background-image: url("https://upload.wikimedia.org/wikipedia/pt/f/fd/Logo_of_Stardew_Valley.png");
+    background-size: cover;
+    height: 28%;
+    width: 62%;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    margin-left: 17%;
+}
+
+.maincard {
+    background-color: white;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+}
+.conteudo{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.titlebox{
+    background-color: green;
+}
+
+.textbox{
+    background-color: rgba(128, 128, 128, 0.2);
+    color: black;
+    padding: 4px;
+}
+
 .card {
     background-color: white;
     padding: 15px;
@@ -63,6 +92,8 @@ article{
     border-radius: 10px;
     text-align: center;
 }
+
+
 
 /* QUADRADOS */
 .area-quadrados {
