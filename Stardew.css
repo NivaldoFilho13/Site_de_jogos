@@ -1,0 +1,1037 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(135, 206, 235, 0.85),
+            rgba(135, 206, 235, 0.85)
+        ),
+        url("https://stardewvalleywiki.com/mediawiki/images/6/61/Forest_Farm.png");
+
+    background-size: cover;
+    background-attachment: fixed;
+
+    color: #333;
+}
+
+header {
+    background:
+        linear-gradient(
+            rgba(34, 107, 66, 0.9),
+            rgba(46, 139, 87, 0.9)
+        );
+
+    color: white;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    border-bottom: 6px solid #8b5a2b;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.header-conteudo {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+
+header h1 {
+    margin: 0;
+
+    font-size: 42px;
+
+    text-shadow:
+        3px 3px 0 #1f633d;
+}
+
+
+header p {
+    font-size: 18px;
+
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    background-color: #704214;
+
+    border-bottom: 4px solid #4e2d0c;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.menu a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+.menu a:hover {
+
+    background-color: #3cb371;
+
+    color: #fff;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+main {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 30px 0;
+}
+
+
+/* =====================================================
+   BANNER
+===================================================== */
+
+.banner {
+
+    min-height: 420px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("https://stardewvalleywiki.com/mediawiki/images/2/2e/Forest_Farm.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    border: 6px solid #8b5a2b;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+.banner-texto {
+
+    color: white;
+
+    text-shadow:
+        3px 3px 5px black;
+}
+
+
+.banner-texto h2 {
+
+    font-size: 55px;
+
+    margin: 0 0 10px;
+}
+
+
+.banner-texto p {
+
+    font-size: 22px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.botao {
+
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    background-color: #2e8b57;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 10px;
+
+    border: 3px solid #1f633d;
+
+    transition: 0.3s;
+}
+
+
+.botao:hover {
+
+    background-color: #3cb371;
+
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   CARD PRINCIPAL
+===================================================== */
+
+.maincard {
+
+    background-color: #fff8dc;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 4px solid #8b5a2b;
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+
+    gap: 30px;
+}
+
+
+.conteudo {
+
+    flex: 1;
+}
+
+
+/* =====================================================
+   TÍTULOS INTERNOS
+===================================================== */
+
+.titlebox {
+
+    background:
+        linear-gradient(
+            #3da866,
+            #2e8b57
+        );
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 10px 10px 0 0;
+
+    border-bottom: 4px solid #1f633d;
+
+    margin-top: 20px;
+}
+
+
+.titlebox:first-child {
+
+    margin-top: 0;
+}
+
+
+.titlebox h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   CAIXAS DE TEXTO
+===================================================== */
+
+.textbox {
+
+    background-color: #f1e5bd;
+
+    padding: 15px 20px;
+
+    border-radius: 0 0 10px 10px;
+
+    border: 2px solid #d0b878;
+
+    line-height: 1.7;
+
+    text-align: justify;
+}
+
+
+.textbox p {
+
+    margin: 8px 0;
+}
+
+
+/* =====================================================
+   IMAGENS DO CARD PRINCIPAL
+===================================================== */
+
+.imagens {
+
+    width: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.imagens img {
+
+    width: 240px;
+
+    max-height: 180px;
+
+    object-fit: contain;
+
+    background-color: white;
+
+    border: 5px solid #8b5a2b;
+
+    border-radius: 12px;
+
+    padding: 10px;
+
+    transition: 0.3s;
+}
+
+
+.imagens img:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+.mini-info {
+
+    background-color: #2e8b57;
+
+    color: white;
+
+    width: 240px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    border: 3px solid #1f633d;
+}
+
+
+.mini-info strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+
+    background-color: #fff8dc;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 4px solid #8b5a2b;
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   TÍTULO DAS SEÇÕES
+===================================================== */
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 3px solid #d6a84f;
+
+    padding-bottom: 12px;
+}
+
+
+.section-title > span {
+
+    font-size: 38px;
+}
+
+
+.section-title h2 {
+
+    color: #246b45;
+
+    margin: 0;
+}
+
+
+.section-title p {
+
+    margin: 5px 0 0;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   ÁREAS DO JOGO
+===================================================== */
+
+.area-quadrados {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.quadrado {
+
+    background-color: #2e8b57;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    border: 4px solid #1f633d;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.quadrado:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    background-color: #3cb371;
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =====================================================
+   IMAGENS DAS ÁREAS
+===================================================== */
+
+.quadrado-imagem {
+
+    height: 150px;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.fazenda-img {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/7/7e/Standard_Farm.png");
+}
+
+
+.cidade-img {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/3/3b/Pelican_Town.png");
+}
+
+
+.mina-img {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/2/21/The_Mines_Entrance.png");
+}
+
+
+.pesca-img {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/3/3d/Fishing.png");
+}
+
+
+.quadrado-texto {
+
+    padding: 15px;
+
+}
+
+
+.quadrado-texto h3 {
+
+    margin: 0 0 8px;
+
+}
+
+
+.quadrado-texto p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   GRID DAS FAZENDAS
+===================================================== */
+
+.fazendas-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.fazenda-card {
+
+    background-color: #f1e5bd;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    border: 3px solid #8b5a2b;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.fazenda-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+.fazenda-topo {
+
+    height: 180px;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+/* =====================================================
+   IMAGENS DAS FAZENDAS
+===================================================== */
+
+.standard {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/7/7e/Standard_Farm.png");
+}
+
+
+.river {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/9/9d/Riverland_Farm.png");
+}
+
+
+.forest {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/2/2e/Forest_Farm.png");
+}
+
+
+.hill {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/6/6e/Hill-top_Farm.png");
+}
+
+
+.four {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/3/33/Four_Corners_Farm.png");
+}
+
+
+.wilderness {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/4/4a/Wilderness_Farm.png");
+}
+
+
+.beach {
+
+    background-image:
+        url("https://stardewvalleywiki.com/mediawiki/images/8/8f/Beach_Farm.png");
+}
+
+
+/* =====================================================
+   CONTEÚDO DAS FAZENDAS
+===================================================== */
+
+.fazenda-conteudo {
+
+    padding: 18px;
+}
+
+
+.fazenda-conteudo h3 {
+
+    color: #246b45;
+
+    margin-top: 0;
+}
+
+
+.fazenda-conteudo p {
+
+    line-height: 1.6;
+
+    text-align: justify;
+}
+
+
+.tag {
+
+    display: inline-block;
+
+    background-color: #2e8b57;
+
+    color: white;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   DETALHES DAS ÁREAS
+===================================================== */
+
+.area-detalhe {
+
+    scroll-margin-top: 80px;
+}
+
+
+.area-detalhe h2 {
+
+    color: #246b45;
+
+    border-bottom: 3px solid #d6a84f;
+
+    padding-bottom: 10px;
+}
+
+
+.area-detalhe p {
+
+    line-height: 1.7;
+
+    text-align: justify;
+}
+
+
+.voltar {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 9px 15px;
+
+    background-color: #2e8b57;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.voltar:hover {
+
+    background-color: #3cb371;
+}
+
+
+/* =====================================================
+   DICAS
+===================================================== */
+
+.dicas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.dica {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background-color: #e7d59d;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border-left: 6px solid #2e8b57;
+
+    transition: 0.3s;
+}
+
+
+.dica:hover {
+
+    transform: translateX(5px);
+
+    background-color: #f0dfa8;
+}
+
+
+.dica span {
+
+    font-size: 28px;
+}
+
+
+.dica p {
+
+    margin: 0;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   CONCLUSÃO
+===================================================== */
+
+.conclusao {
+
+    text-align: center;
+}
+
+
+.conclusao h2 {
+
+    color: #246b45;
+
+    font-size: 28px;
+}
+
+
+.conclusao p {
+
+    max-width: 850px;
+
+    margin: 15px auto;
+
+    line-height: 1.7;
+
+    text-align: justify;
+}
+
+
+.frase-final {
+
+    background-color: #2e8b57;
+
+    color: white;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    text-align: center !important;
+
+    border: 3px solid #1f633d;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background-color: #246b45;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 30px;
+
+    border-top: 6px solid #8b5a2b;
+}
+
+
+footer h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+
+footer p {
+
+    margin: 5px;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .area-quadrados {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .fazendas-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .dicas {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .maincard {
+
+        flex-direction: column;
+    }
+
+
+    .imagens {
+
+        width: 100%;
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    header h1 {
+
+        font-size: 30px;
+    }
+
+
+    .menu {
+
+        position: relative;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .menu a {
+
+        width: 90%;
+
+        text-align: center;
+    }
+
+
+    main {
+
+        width: 94%;
+    }
+
+
+    .banner {
+
+        min-height: 320px;
+    }
+
+
+    .banner-texto h2 {
+
+        font-size: 38px;
+    }
+
+
+    .area-quadrados,
+    .fazendas-grid,
+    .dicas {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .maincard {
+
+        padding: 15px;
+    }
+
+
+    .imagens img {
+
+        width: 200px;
+    }
+
+}
