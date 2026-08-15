@@ -1,22 +1,29 @@
-body{
+body {
+margin: 0;
+}
+footer {
+    background-color: #000000; 
     margin: 0;
+    padding: 10px;
+    border: 30px;
+    height: 20%;
+    font-family: sans-serif;
+    margin-top: 0;
+    color: white;
+}
+footer ol p{
+    text-align: left ;
+}
+footer ol h3{
+    text-align: left ;
     font-family: sans-serif;
 }
-
-a{
-    font-style: none;
+footer div a{
     font-family: sans-serif;
+    color:whitesmoke;
+    text-decoration: none;
 }
-
-header{
-    background-color: blue;
-}
-
-article{
-    background-color: red;
-}
-
-footer{
-    background-color: black;
-    font-style: none;
+footer small{
+    text-align: center;
+    align-items: center;
 }
