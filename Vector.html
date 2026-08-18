@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vector — A História da Fuga</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* MENU */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(9, 9, 9, 0.9);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #1d1d1d;
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 27px;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #e63946;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #777;
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #e63946;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+
+            padding: 150px 7% 100px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "VECTOR";
+
+            position: absolute;
+            right: -100px;
+            bottom: -100px;
+
+            font-family: 'Anton', sans-serif;
+            font-size: 280px;
+
+            color: #111;
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 800px;
+        }
+
+        .hero-small {
+            color: #e63946;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 5px;
+        }
+
+        .hero h1 {
+            font-family: 'Anton', sans-serif;
+
+            font-size: clamp(100px, 18vw, 210px);
+
+            line-height: .8;
+            letter-spacing: 5px;
+
+            margin: 25px 0;
+        }
+
+        .hero h1 span {
+            color: #e63946;
+        }
+
+        .hero p {
+            max-width: 560px;
+
+            color: #888;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .scroll {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-top: 35px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .scroll-line {
+            width: 40px;
+            height: 1px;
+
+            background: #e63946;
+        }
+
+
+        /* SEÇÕES */
+
+        section {
+            padding: 130px 7%;
+        }
+
+        .number {
+            color: #e63946;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-family: 'Anton', sans-serif;
+
+            font-size: clamp(55px, 8vw, 95px);
+
+            line-height: .9;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* SOBRE */
+
+        .about {
+            min-height: 70vh;
+
+            display: flex;
+            align-items: center;
+
+            border-top: 1px solid #181818;
+        }
+
+        .about-content {
+            max-width: 850px;
+        }
+
+        .about-text {
+            color: #999;
+
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .about-text strong {
+            color: white;
+        }
+
+
+        /* HISTÓRIA */
+
+        .story {
+            background: #0d0d0d;
+
+            border-top: 1px solid #181818;
+        }
+
+        .story-content {
+            max-width: 850px;
+        }
+
+        .story-intro {
+            color: #999;
+
+            font-size: 18px;
+            line-height: 2;
+
+            margin-bottom: 70px;
+        }
+
+        .story-paragraph {
+            padding: 45px 0;
+
+            border-top: 1px solid #292929;
+        }
+
+        .story-paragraph:last-child {
+            border-bottom: 1px solid #292929;
+        }
+
+        .story-paragraph h3 {
+            color: #e63946;
+
+            font-family: 'Anton', sans-serif;
+
+            font-size: 40px;
+
+            margin-bottom: 20px;
+        }
+
+        .story-paragraph p {
+            color: #999;
+
+            font-size: 16px;
+            line-height: 2;
+        }
+
+
+        /* NO JOGO */
+
+        .gameplay {
+            border-top: 1px solid #181818;
+        }
+
+        .gameplay-text {
+            max-width: 800px;
+
+            color: #999;
+
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .gameplay-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 65px;
+        }
+
+        .card {
+            min-height: 220px;
+
+            padding: 30px;
+
+            border: 1px solid #242424;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            transition: .3s;
+        }
+
+        .card:hover {
+            background: #e63946;
+
+            border-color: #e63946;
+
+            transform: translateY(-5px);
+        }
+
+        .card-number {
+            color: #e63946;
+
+            font-family: 'Anton', sans-serif;
+
+            font-size: 45px;
+
+            margin-bottom: auto;
+        }
+
+        .card h3 {
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #777;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .card:hover .card-number,
+        .card:hover p {
+            color: #ffd8db;
+        }
+
+
+        /* FINAL */
+
+        .ending {
+            min-height: 55vh;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border-top: 1px solid #181818;
+        }
+
+        .ending h2 {
+            font-family: 'Anton', sans-serif;
+
+            font-size: clamp(70px, 12vw, 160px);
+
+            line-height: .8;
+        }
+
+        .ending h2 span {
+            color: #e63946;
+        }
+
+        .ending p {
+            color: #555;
+
+            margin-top: 30px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 7%;
+
+            border-top: 1px solid #1d1d1d;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+
+        /* RESPONSIVO */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 130px 20px 80px;
+            }
+
+            .hero::after {
+                font-size: 130px;
+                right: -40px;
+            }
+
+            section {
+                padding: 90px 20px;
+            }
+
+            .gameplay-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 25px 20px;
+
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 22px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 90px;
+            }
+
+            .about-text,
+            .story-intro,
+            .story-paragraph p,
+            .gameplay-text {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+
+    <header>
+
+        <div class="logo">
+            V<span>E</span>CTOR
+        </div>
+
+        <nav>
+            <a href="#sobre">O JOGO</a>
+            <a href="#historia">HISTÓRIA</a>
+            <a href="#jogo">NO JOGO</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-small">
+                    A HISTÓRIA DA FUGA
+                </div>
+
+                <h1>
+                    VEC<span>TOR</span>
+                </h1>
+
+                <p>
+                    Em um futuro onde a liberdade foi tomada pelo
+                    controle, um homem decide quebrar as regras e
+                    fugir. Conheça a história por trás de Vector.
+                </p>
+
+                <a href="#sobre" class="scroll">
+                    <span class="scroll-line"></span>
+                    COMEÇAR
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- O QUE É VECTOR -->
+
+        <section class="about" id="sobre">
+
+            <div class="about-content">
+
+                <div class="number">
+                    01 — O JOGO
+                </div>
+
+                <h2 class="title">
+                    O QUE É<br>
+                    VECTOR?
+                </h2>
+
+                <p class="about-text">
+
+                    <strong>Vector</strong> é um jogo de ação e parkour
+                    desenvolvido pela Nekki. Lançado em 2012, o jogo
+                    coloca o jogador no controle de um fugitivo que
+                    precisa atravessar uma cidade enquanto é perseguido
+                    pelas forças de um sistema autoritário.
+
+                    <br><br>
+
+                    Com uma estética baseada em silhuetas e cenários
+                    urbanos, o jogo combina corrida, perseguição e
+                    movimentos de parkour. Mais do que simplesmente
+                    chegar ao final de uma fase, o jogador acompanha
+                    a tentativa do protagonista de recuperar sua
+                    liberdade.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTÓRIA -->
+
+        <section class="story" id="historia">
+
+            <div class="number">
+                02 — A HISTÓRIA
+            </div>
+
+            <h2 class="title">
+                A FUGA
+            </h2>
+
+            <div class="story-content">
+
+                <p class="story-intro">
+
+                    Em um futuro distópico e totalitário, a humanidade
+                    vive sob o controle de um sistema que elimina a
+                    liberdade e o livre-arbítrio. É nesse cenário que
+                    começa a fuga do protagonista.
+
+                </p>
+
+
+                <div class="story-paragraph">
+
+                    <h3>
+                        O DESPERTAR
+                    </h3>
+
+                    <p>
+
+                        A história começa dentro de um escritório
+                        corporativo cinzento e monótono. O protagonista,
+                        cujo nome nunca é revelado, está entre as pessoas
+                        submetidas ao controle do sistema.
+
+                        <br><br>
+
+                        Em determinado momento, ele decide romper com
+                        aquela realidade. Ele arranca o dispositivo de
+                        controle mental que usava e quebra a vidraça do
+                        prédio, saltando para fora e iniciando sua fuga
+                        em busca de liberdade.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story-paragraph">
+
+                    <h3>
+                        A PERSEGUIÇÃO
+                    </h3>
+
+                    <p>
+
+                        A fuga não passa despercebida. O sistema envia
+                        o "Big Brother", um caçador treinado para capturar
+                        o protagonista. Armado com uma arma de choque,
+                        ele passa a persegui-lo por toda a cidade.
+
+                        <br><br>
+
+                        O protagonista precisa correr pelos telhados e
+                        atravessar diferentes ambientes urbanos enquanto
+                        tenta manter distância de seu perseguidor.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story-paragraph">
+
+                    <h3>
+                        OS CAMINHOS DA FUGA
+                    </h3>
+
+                    <p>
+
+                        A perseguição passa por três grandes áreas.
+                        Primeiro, o <strong>Downtown</strong>, onde a fuga
+                        começa entre prédios e telhados.
+
+                        <br><br>
+
+                        Depois, o protagonista chega ao
+                        <strong>Construction Site</strong>, um canteiro
+                        de obras repleto de guindastes, vigas e grandes
+                        espaços abertos.
+
+                        <br><br>
+
+                        Por fim, ele alcança o
+                        <strong>Technology Park</strong>, uma área mais
+                        avançada e fortemente protegida, onde a pressão
+                        da perseguição aumenta ainda mais.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story-paragraph">
+
+                    <h3>
+                        O DESFECHO
+                    </h3>
+
+                    <p>
+
+                        Depois de atravessar os diferentes setores da
+                        cidade e superar inúmeros obstáculos, o
+                        protagonista finalmente chega ao limite de sua
+                        fuga.
+
+                        <br><br>
+
+                        Apesar de todos os seus esforços, ele acaba
+                        cercado pelas forças de segurança e é capturado
+                        pelos agentes do governo. O jogo termina nesse
+                        momento, deixando o destino do protagonista em
+                        aberto.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- O QUE ACONTECE NO JOGO -->
+
+        <section class="gameplay" id="jogo">
+
+            <div class="number">
+                03 — NO JOGO
+            </div>
+
+            <h2 class="title">
+                O QUE<br>
+                ACONTECE?
+            </h2>
+
+            <p class="gameplay-text">
+
+                A história é apresentada através da própria ação.
+                Durante cada fase, o jogador controla o fugitivo
+                enquanto ele corre automaticamente pelo cenário.
+                É preciso reagir rapidamente para continuar avançando
+                e evitar ser capturado.
+
+            </p>
+
+
+            <div class="gameplay-grid">
+
+                <div class="card">
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                    <h3>
+                        CORRER
+                    </h3>
+
+                    <p>
+                        O protagonista corre continuamente enquanto
+                        o jogador decide como superar o caminho.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">
+                        02
+                    </div>
+
+                    <h3>
+                        PARKOUR
+                    </h3>
+
+                    <p>
+                        Saltos, deslizes e outras manobras são usados
+                        para passar pelos obstáculos.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">
+                        03
+                    </div>
+
+                    <h3>
+                        ESCAPAR
+                    </h3>
+
+                    <p>
+                        O objetivo é chegar ao final da fase sem
+                        deixar que os perseguidores alcancem o fugitivo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <section class="ending">
+
+            <h2>
+                KEEP<br>
+                <span>RUNNING.</span>
+            </h2>
+
+            <p>
+                A história de uma fuga em busca da liberdade.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            VECTOR — FAN SITE
+        </span>
+
+        <span>
+            Projeto desenvolvido para fins educacionais.
+        </span>
+
+    </footer>
+
+</body>
+</html>
