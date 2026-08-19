@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spider-Man - Wikipedia</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(circle at 80% 10%, #8b0000, transparent 35%),
+                radial-gradient(circle at 20% 80%, #300000, transparent 35%),
+                #080808;
+
+            color: white;
+        }
+
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        header {
+            background: #080808;
+            color: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 4px solid #e30613;
+        }
+
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #e30613;
+        }
+
+
+        .voltar {
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border: 1px solid #555;
+
+            border-radius: 5px;
+
+            transition: 0.2s;
+        }
+
+
+        .voltar:hover {
+            background: #e30613;
+            border-color: #e30613;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        .pagina {
+            max-width: 1100px;
+
+            margin: 30px auto;
+
+            padding: 0 25px;
+        }
+
+
+        h1 {
+            font-size: 42px;
+
+            margin-bottom: 8px;
+
+            color: white;
+        }
+
+
+        .linha {
+            height: 3px;
+
+            background: #e30613;
+
+            margin-bottom: 25px;
+        }
+
+
+        .introducao {
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+
+            color: #ddd;
+        }
+
+
+        /* =========================
+           CAIXA DE INFORMAÇÕES
+        ========================= */
+
+        .info {
+            float: right;
+
+            width: 310px;
+
+            margin: 0 0 25px 30px;
+
+            background: #151515;
+
+            border: 1px solid #444;
+
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.4);
+        }
+
+
+        .info-titulo {
+            background: #e30613;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 15px;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+
+        .info-conteudo {
+            padding: 18px;
+        }
+
+
+        .info-conteudo p {
+            margin-bottom: 12px;
+
+            line-height: 1.5;
+
+            color: #ccc;
+        }
+
+
+        .info-conteudo strong {
+            color: white;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            background: #151515;
+
+            color: #ddd;
+
+            padding: 25px;
+
+            margin-top: 25px;
+
+            border-left: 5px solid #e30613;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 2px 12px rgba(0,0,0,0.35);
+        }
+
+
+        h2 {
+            font-size: 28px;
+
+            margin-bottom: 15px;
+
+            color: white;
+        }
+
+
+        h3 {
+            font-size: 21px;
+
+            margin-top: 20px;
+
+            margin-bottom: 10px;
+
+            color: white;
+        }
+
+
+        p {
+            line-height: 1.7;
+
+            margin-bottom: 14px;
+        }
+
+
+        ul {
+            margin-left: 25px;
+
+            line-height: 1.8;
+        }
+
+
+        li {
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           DESTAQUE
+        ========================= */
+
+        .destaque {
+            background:
+                linear-gradient(
+                    135deg,
+                    #151515,
+                    #260000
+                );
+
+            color: #ddd;
+
+            border-left: 5px solid #e30613;
+        }
+
+
+        .destaque h2 {
+            color: white;
+        }
+
+
+        .destaque strong {
+            color: #ff3333;
+        }
+
+
+        /* =========================
+           TABELA
+        ========================= */
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 15px;
+        }
+
+
+        th,
+        td {
+            border: 1px solid #444;
+
+            padding: 12px;
+
+            text-align: left;
+        }
+
+
+        th {
+            background: #e30613;
+
+            color: white;
+        }
+
+
+        td {
+            color: #ddd;
+        }
+
+
+        tr:nth-child(even) {
+            background: #1d1d1d;
+        }
+
+
+        tr:nth-child(odd) {
+            background: #111;
+        }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .botoes {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+        }
+
+
+        .botao {
+            text-decoration: none;
+
+            color: white;
+
+            background: #e30613;
+
+            padding: 14px 22px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.3);
+        }
+
+
+        .botao:hover {
+            background: white;
+
+            color: #e30613;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            margin-top: 40px;
+
+            background: #080808;
+
+            color: #777;
+
+            text-align: center;
+
+            padding: 25px;
+
+            border-top: 3px solid #e30613;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .info {
+                float: none;
+
+                width: 100%;
+
+                margin: 20px 0;
+            }
+
+
+            h1 {
+                font-size: 34px;
+            }
+
+
+            .pagina {
+                padding: 0 15px;
+            }
+
+
+            section {
+                padding: 18px;
+            }
+
+
+            table {
+                font-size: 14px;
+            }
+
+
+            .botoes {
+                flex-direction: column;
+            }
+
+
+            .botao {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOPO
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            SPIDER<span>-MAN</span>
+        </div>
+
+
+        <a href="index.html" class="voltar">
+            ← Voltar
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         PÁGINA
+    ========================= -->
+
+    <div class="pagina">
+
+
+        <h1>
+            Marvel's Spider-Man
+        </h1>
+
+
+        <div class="linha"></div>
+
+
+        <p class="introducao">
+
+            <strong>Marvel's Spider-Man</strong> é um jogo eletrônico
+            de ação e aventura desenvolvido pela Insomniac Games
+            e publicado pela Sony Interactive Entertainment.
+            O jogo apresenta uma história original ambientada
+            em uma versão da cidade de Nova York do universo Marvel.
+
+        </p>
+
+
+        <!-- =========================
+             CAIXA DE INFORMAÇÕES
+        ========================= -->
+
+        <aside class="info">
+
+            <div class="info-titulo">
+
+                Marvel's Spider-Man
+
+            </div>
+
+
+            <div class="info-conteudo">
+
+
+                <p>
+
+                    <strong>Desenvolvedora:</strong><br>
+
+                    Insomniac Games
+
+                </p>
+
+
+                <p>
+
+                    <strong>Publicadora:</strong><br>
+
+                    Sony Interactive Entertainment
+
+                </p>
+
+
+                <p>
+
+                    <strong>Data de lançamento:</strong><br>
+
+                    7 de setembro de 2018
+
+                </p>
+
+
+                <p>
+
+                    <strong>Plataforma original:</strong><br>
+
+                    PlayStation 4
+
+                </p>
+
+
+                <p>
+
+                    <strong>Versão remasterizada:</strong><br>
+
+                    PlayStation 5 e PC
+
+                </p>
+
+
+                <p>
+
+                    <strong>Gênero:</strong><br>
+
+                    Ação e aventura
+
+                </p>
+
+
+                <p>
+
+                    <strong>Protagonista:</strong><br>
+
+                    Peter Parker / Spider-Man
+
+                </p>
+
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             HISTÓRIA
+        ========================= -->
+
+        <section>
+
+            <h2>
+                História
+            </h2>
+
+
+            <p>
+
+                A história acompanha Peter Parker, que já atua como
+                Spider-Man há vários anos. Diferentemente de uma
+                história de origem, o jogador controla um herói
+                experiente que precisa enfrentar uma série de
+                ameaças enquanto tenta equilibrar sua vida como
+                Peter Parker.
+
+            </p>
+
+
+            <p>
+
+                A situação muda quando uma nova ameaça surge em
+                Nova York. Peter precisa proteger a cidade e as
+                pessoas que ama enquanto enfrenta criminosos,
+                vilões e problemas de sua própria vida.
+
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             JOGABILIDADE
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Jogabilidade
+            </h2>
+
+
+            <p>
+
+                Marvel's Spider-Man é jogado em terceira pessoa e
+                permite explorar uma grande representação de
+                Nova York.
+
+            </p>
+
+
+            <p>
+
+                Uma das principais características do jogo é a
+                movimentação pela cidade. Spider-Man pode balançar
+                entre os prédios usando suas teias, correr pelas
+                paredes e atravessar grandes distâncias rapidamente.
+
+            </p>
+
+
+            <h3>
+                Combate
+            </h3>
+
+
+            <p>
+
+                O sistema de combate combina ataques físicos,
+                acrobacias, esquivas, dispositivos tecnológicos
+                e o ambiente ao redor.
+
+            </p>
+
+
+            <h3>
+                Exploração
+            </h3>
+
+
+            <p>
+
+                A cidade possui atividades, missões secundárias,
+                crimes acontecendo pelas ruas e diversos itens
+                para encontrar.
+
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             PERSONAGENS
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Personagens
+            </h2>
+
+
+            <ul>
+
+
+                <li>
+
+                    <strong>Peter Parker / Spider-Man</strong> —
+
+                    protagonista do jogo.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Mary Jane Watson</strong> —
+
+                    jornalista e pessoa importante na vida de Peter.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Miles Morales</strong> —
+
+                    jovem que possui uma ligação importante com Peter.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Norman Osborn</strong> —
+
+                    prefeito de Nova York e figura importante
+                    na história.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Otto Octavius</strong> —
+
+                    cientista e mentor de Peter.
+
+                </li>
+
+
+                <li>
+
+                    <strong>Martin Li / Senhor Negativo</strong> —
+
+                    um dos principais antagonistas da história.
+
+                </li>
+
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             TRAJES
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Trajes
+            </h2>
+
+
+            <p>
+
+                O jogo possui diversos trajes que podem ser
+                desbloqueados. Cada traje apresenta um visual
+                diferente e alguns também estão associados a
+                habilidades especiais.
+
+            </p>
+
+
+            <p>
+
+                A Insomniac informou que o jogo possui mais de
+                40 designs de trajes.
+
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             NOVA YORK
+        ========================= -->
+
+        <section class="destaque">
+
+            <h2>
+                Nova York
+            </h2>
+
+
+            <p>
+
+                A Nova York da Marvel funciona como um grande
+                espaço de exploração. O jogador pode atravessar
+                diferentes bairros, subir prédios e observar
+                pontos famosos da cidade.
+
+            </p>
+
+
+            <p>
+
+                A movimentação por teias é uma das partes centrais
+                da experiência, permitindo atravessar Manhattan
+                rapidamente e participar de atividades espalhadas
+                pelo mapa.
+
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             PS5
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Marvel's Spider-Man Remastered
+            </h2>
+
+
+            <p>
+
+                Uma versão remasterizada foi lançada para
+                PlayStation 5 em 2020. Ela trouxe melhorias
+                visuais e recursos específicos do console.
+
+            </p>
+
+
+            <p>
+
+                Entre os recursos estão gráficos aprimorados,
+                carregamentos mais rápidos, áudio espacial 3D,
+                resposta tátil e gatilhos adaptáveis do controle
+                DualSense.
+
+            </p>
+
+
+            <table>
+
+
+                <tr>
+
+                    <th>
+                        Recurso
+                    </th>
+
+                    <th>
+                        PS5
+                    </th>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Gráficos aprimorados
+                    </td>
+
+                    <td>
+                        Sim
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Modo de desempenho
+                    </td>
+
+                    <td>
+                        Até 60 fps
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Áudio 3D
+                    </td>
+
+                    <td>
+                        Sim
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Resposta tátil
+                    </td>
+
+                    <td>
+                        Sim
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Gatilhos adaptáveis
+                    </td>
+
+                    <td>
+                        Sim
+                    </td>
+
+                </tr>
+
+
+            </table>
+
+        </section>
+
+
+        <!-- =========================
+             DLC
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Conteúdo adicional
+            </h2>
+
+
+            <p>
+
+                A expansão chamada
+                <strong>A Cidade Que Nunca Dorme</strong>
+                adiciona novos capítulos de história, desafios,
+                aliados, inimigos e trajes.
+
+            </p>
+
+
+            <p>
+                O conteúdo é dividido em três capítulos:
+            </p>
+
+
+            <ul>
+
+                <li>
+                    O Assalto
+                </li>
+
+                <li>
+                    Guerras Territoriais
+                </li>
+
+                <li>
+                    Silver Lining
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             FRANQUIA
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Continuação
+            </h2>
+
+
+            <p>
+
+                O jogo faz parte de uma franquia desenvolvida
+                pela Insomniac Games. Depois dele vieram
+                <strong>Marvel's Spider-Man: Miles Morales</strong>
+                e
+                <strong>Marvel's Spider-Man 2</strong>.
+
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             NAVEGAÇÃO
+        ========================= -->
+
+        <section>
+
+            <h2>
+                Explore o site
+            </h2>
+
+
+            <div class="botoes">
+
+
+                <a href="index.html" class="botao">
+                    🏠 Início
+                </a>
+
+
+                <a href="perguntas.html" class="botao">
+                    ❓ Perguntas
+                </a>
+
+
+                <a href="personagens.html" class="botao">
+                    🕷️ Personagens
+                </a>
+
+
+                <a href="jogos.html" class="botao">
+                    🎮 Jogos
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        Marvel's Spider-Man • Página informativa
+
+    </footer>
+
+
+</body>
+
+</html>

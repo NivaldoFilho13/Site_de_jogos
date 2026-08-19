@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spider-Man</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 80% 20%, #b30000 0%, transparent 35%),
+                radial-gradient(circle at 20% 80%, #300000 0%, transparent 35%),
+                #050505;
+            color: white;
+        }
+
+        /* TOPO */
+
+        header {
+            height: 75px;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid #e50914;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 50px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #e50914;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            padding: 10px 16px;
+
+            border-radius: 6px;
+
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            background: #e50914;
+            transform: translateY(-2px);
+        }
+
+        /* PRINCIPAL */
+
+        main {
+            min-height: calc(100vh - 120px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 50px 20px;
+        }
+
+        .conteudo {
+            width: 100%;
+            max-width: 1000px;
+
+            text-align: center;
+        }
+
+        .tag {
+            color: #e50914;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 85px;
+            font-weight: 900;
+            text-transform: uppercase;
+
+            text-shadow:
+                5px 5px 0 #000,
+                0 0 30px rgba(229, 9, 20, 0.4);
+        }
+
+        h1 span {
+            color: #e50914;
+        }
+
+        .descricao {
+            max-width: 650px;
+            margin: 20px auto;
+
+            color: #cfcfcf;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* BOTÕES PRINCIPAIS */
+
+        .botoes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+        .botao {
+            min-width: 180px;
+
+            padding: 16px 25px;
+
+            color: white;
+            text-decoration: none;
+
+            font-weight: bold;
+            font-size: 16px;
+
+            background: #e50914;
+
+            border-radius: 7px;
+
+            transition: 0.25s;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .botao:hover {
+            transform: translateY(-5px);
+            background: white;
+            color: #e50914;
+            box-shadow: 0 12px 30px rgba(229,9,20,0.35);
+        }
+
+        .botao.secundario {
+            background: transparent;
+            border: 2px solid #777;
+        }
+
+        .botao.secundario:hover {
+            background: white;
+            border-color: white;
+            color: black;
+        }
+
+        /* CARTÕES */
+
+        .cartoes {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .card {
+            background: rgba(20,20,20,0.85);
+
+            border: 1px solid #333;
+            border-radius: 12px;
+
+            padding: 25px;
+
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+
+            border-color: #e50914;
+
+            background: rgba(35, 5, 5, 0.95);
+        }
+
+        .icone {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            height: 45px;
+
+            background: #0b0b0b;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #666;
+            font-size: 13px;
+
+            border-top: 1px solid #222;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            h1 {
+                font-size: 50px;
+            }
+
+            .descricao {
+                font-size: 16px;
+            }
+
+            .cartoes {
+                grid-template-columns: 1fr;
+            }
+
+            .botao {
+                width: 90%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+
+    <header>
+
+        <div class="logo">
+            SPIDER<span>-MAN</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">Início</a>
+
+            <a href="wikipedia.html">
+                Wikipedia
+            </a>
+
+            <a href="perguntas.html">
+                Perguntas
+            </a>
+
+            <a href="personagens.html">
+                Personagens
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <div class="conteudo">
+
+            <div class="tag">
+                BEM-VINDO AO UNIVERSO
+            </div>
+
+            <h1>
+                Spider-<span>Man</span>
+            </h1>
+
+            <p class="descricao">
+                Entre no universo do Homem-Aranha, conheça os
+                personagens, descubra informações sobre os jogos
+                e teste seus conhecimentos.
+            </p>
+
+
+            <!-- BOTÕES -->
+
+            <div class="botoes">
+
+                <a href="wikipedia.html" class="botao">
+                    📖 Wikipedia
+                </a>
+
+                <a href="perguntas.html" class="botao">
+                    ❓ Perguntas
+                </a>
+
+                <a href="personagens.html" class="botao secundario">
+                    🕷️ Personagens
+                </a>
+
+                <a href="jogos.html" class="botao secundario">
+                    🎮 Jogos
+                </a>
+
+            </div>
+
+
+            <!-- CARTÕES -->
+
+            <div class="cartoes">
+
+                <div class="card">
+
+                    <div class="icone">🕷️</div>
+
+                    <h2>O Homem-Aranha</h2>
+
+                    <p>
+                        Conheça a história e as aventuras
+                        do herói.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icone">🎮</div>
+
+                    <h2>Jogos</h2>
+
+                    <p>
+                        Descubra os principais jogos
+                        do universo Spider-Man.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icone">❓</div>
+
+                    <h2>Quiz</h2>
+
+                    <p>
+                        Teste quanto você sabe sobre
+                        o Homem-Aranha.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        Site sobre Spider-Man • Feito por você 🕷️
+
+    </footer>
+
+</body>
+</html>

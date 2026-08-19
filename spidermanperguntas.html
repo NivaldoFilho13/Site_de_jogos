@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perguntas - Spider-Man</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 80% 10%, #8b0000, transparent 35%),
+                radial-gradient(circle at 20% 80%, #300000, transparent 35%),
+                #080808;
+
+            color: white;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        header {
+            height: 75px;
+
+            background: #0d0d0d;
+
+            border-bottom: 3px solid #e30613;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 50px;
+        }
+
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+
+        .logo span {
+            color: #e30613;
+        }
+
+
+        .voltar {
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border: 1px solid #555;
+
+            border-radius: 6px;
+
+            transition: 0.2s;
+        }
+
+
+        .voltar:hover {
+            background: #e30613;
+
+            border-color: #e30613;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            max-width: 900px;
+
+            margin: 45px auto;
+
+            padding: 0 20px;
+        }
+
+
+        /* =========================
+           TÍTULO
+        ========================= */
+
+        .titulo {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .titulo h1 {
+            font-size: 55px;
+
+            text-transform: uppercase;
+
+            font-weight: 900;
+
+            text-shadow:
+                4px 4px 0 #000,
+                0 0 25px rgba(227, 6, 19, 0.4);
+        }
+
+
+        .titulo h1 span {
+            color: #e30613;
+        }
+
+
+        .titulo p {
+            color: #aaa;
+
+            margin-top: 12px;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           PERGUNTAS
+        ========================= */
+
+        .pergunta {
+            background: #151515;
+
+            border: 1px solid #333;
+
+            border-left: 5px solid #e30613;
+
+            padding: 25px;
+
+            margin-bottom: 22px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.25);
+
+            transition: 0.2s;
+        }
+
+
+        .pergunta:hover {
+            border-color: #e30613;
+
+            transform: translateY(-2px);
+        }
+
+
+        .pergunta h2 {
+            font-size: 20px;
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           ALTERNATIVAS
+        ========================= */
+
+        .alternativas {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .alternativa {
+            background: #222;
+
+            color: #ddd;
+
+            border: 1px solid #444;
+
+            padding: 14px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            font-size: 15px;
+        }
+
+
+        .alternativa:hover {
+            background: #e30613;
+
+            color: white;
+
+            border-color: #e30613;
+
+            transform: translateX(5px);
+        }
+
+
+        .alternativa.selecionada {
+            background: #e30613;
+
+            color: white;
+
+            border-color: white;
+
+            box-shadow:
+                0 0 12px rgba(227,6,19,0.4);
+        }
+
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .area-botao {
+            text-align: center;
+
+            margin-top: 35px;
+        }
+
+
+        #verificar {
+            background: #e30613;
+
+            color: white;
+
+            border: none;
+
+            padding: 17px 35px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.4);
+        }
+
+
+        #verificar:hover {
+            background: white;
+
+            color: #e30613;
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           RESULTADO
+        ========================= */
+
+        #resultado {
+            display: none;
+
+            margin-top: 35px;
+
+            padding: 30px;
+
+            background: #151515;
+
+            border: 2px solid #e30613;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            box-shadow:
+                0 0 25px rgba(227,6,19,0.2);
+        }
+
+
+        #resultado h2 {
+            color: #e30613;
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+
+        #pontuacao {
+            color: #ddd;
+
+            font-size: 20px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           BOTÃO NOVAMENTE
+        ========================= */
+
+        #novamente {
+            margin-top: 20px;
+
+            padding: 13px 25px;
+
+            background: transparent;
+
+            color: white;
+
+            border: 1px solid #777;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        #novamente:hover {
+            background: white;
+
+            color: black;
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            margin-top: 55px;
+
+            padding: 25px;
+
+            background: #0d0d0d;
+
+            border-top: 1px solid #333;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+
+            .container {
+                padding: 0 15px;
+            }
+
+
+            .titulo h1 {
+                font-size: 42px;
+            }
+
+
+            .pergunta {
+                padding: 20px;
+            }
+
+
+            .pergunta h2 {
+                font-size: 18px;
+            }
+
+
+            #verificar {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOPO
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            SPIDER<span>-MAN</span>
+        </div>
+
+
+        <a href="index.html" class="voltar">
+            ← Início
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         CONTEÚDO
+    ========================= -->
+
+    <main class="container">
+
+
+        <!-- TÍTULO -->
+
+        <div class="titulo">
+
+            <h1>
+                Quiz <span>Spider-Man</span>
+            </h1>
+
+
+            <p>
+                Você realmente conhece Marvel's Spider-Man?
+                Tente acertar todas.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 1
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                1. Qual era a área principal de pesquisa de Otto Octavius?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Engenharia genética
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Controle de próteses e membros mecânicos
+                </div>
+
+
+                <div class="alternativa">
+                    Inteligência artificial militar
+                </div>
+
+
+                <div class="alternativa">
+                    Biologia molecular
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 2
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                2. Qual é o nome verdadeiro do Senhor Negativo?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Wilson Fisk
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Martin Li
+                </div>
+
+
+                <div class="alternativa">
+                    Herman Schultz
+                </div>
+
+
+                <div class="alternativa">
+                    Lonnie Lincoln
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 3
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                3. Qual é o nome do projeto relacionado ao Devil's Breath?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    GR-35
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    GR-27
+                </div>
+
+
+                <div class="alternativa">
+                    OS-27
+                </div>
+
+
+                <div class="alternativa">
+                    Devil-27
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 4
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                4. Qual personagem administra o abrigo F.E.A.S.T.?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Mary Jane Watson
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Martin Li
+                </div>
+
+
+                <div class="alternativa">
+                    Yuri Watanabe
+                </div>
+
+
+                <div class="alternativa">
+                    Norman Osborn
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 5
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                5. Qual grupo é associado diretamente ao Senhor Negativo?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Maggia
+                </div>
+
+
+                <div class="alternativa">
+                    Demônios
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Inner Demons
+                </div>
+
+
+                <div class="alternativa">
+                    Sable
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 6
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                6. Qual organização é contratada para atuar em Nova York durante a crise?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    S.H.I.E.L.D.
+                </div>
+
+
+                <div class="alternativa">
+                    A.I.M.
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Sable International
+                </div>
+
+
+                <div class="alternativa">
+                    Oscorp Security
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 7
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                7. Qual destes vilões possui uma relação com a tecnologia avançada de combate?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Kingpin
+                </div>
+
+
+                <div class="alternativa">
+                    Vulture
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Rhino
+                </div>
+
+
+                <div class="alternativa">
+                    Shocker
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 8
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                8. Qual personagem é uma jornalista investigativa e amiga de Peter?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Felicia Hardy
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Mary Jane Watson
+                </div>
+
+
+                <div class="alternativa">
+                    Silver Sable
+                </div>
+
+
+                <div class="alternativa">
+                    Yuri Watanabe
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 9
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                9. Qual é a identidade de Tombstone?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Herman Schultz
+                </div>
+
+
+                <div class="alternativa">
+                    Mac Gargan
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Lonnie Lincoln
+                </div>
+
+
+                <div class="alternativa">
+                    Sergei Kravinoff
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTA 10
+        ========================= -->
+
+        <div class="pergunta">
+
+            <h2>
+                10. Qual é o principal conflito de Peter Parker ao longo do jogo?
+            </h2>
+
+
+            <div class="alternativas">
+
+                <div class="alternativa">
+                    Descobrir sua origem
+                </div>
+
+
+                <div class="alternativa">
+                    Encontrar um novo poder
+                </div>
+
+
+                <div class="alternativa" data-correta="true">
+                    Equilibrar sua vida pessoal com sua responsabilidade como Spider-Man
+                </div>
+
+
+                <div class="alternativa">
+                    Recuperar seus poderes
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             BOTÃO
+        ========================= -->
+
+        <div class="area-botao">
+
+            <button id="verificar">
+                🕷️ VERIFICAR RESPOSTAS
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             RESULTADO
+        ========================= -->
+
+        <div id="resultado">
+
+            <h2>
+                🕷️ Resultado
+            </h2>
+
+
+            <p id="pontuacao"></p>
+
+
+            <button id="novamente">
+                Tentar novamente
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        Spider-Man • Quiz difícil
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* PEGAR TODAS AS PERGUNTAS */
+
+        const perguntas =
+            document.querySelectorAll(".pergunta");
+
+
+        /* SELECIONAR ALTERNATIVA */
+
+        perguntas.forEach(pergunta => {
+
+            const alternativas =
+                pergunta.querySelectorAll(".alternativa");
+
+
+            alternativas.forEach(alternativa => {
+
+                alternativa.addEventListener("click", function() {
+
+                    alternativas.forEach(item => {
+
+                        item.classList.remove("selecionada");
+
+                    });
+
+
+                    this.classList.add("selecionada");
+
+                });
+
+            });
+
+        });
+
+
+        /* VERIFICAR */
+
+        document
+            .getElementById("verificar")
+            .addEventListener("click", function() {
+
+
+                let pontos = 0;
+
+                let respondidas = 0;
+
+
+                perguntas.forEach(pergunta => {
+
+
+                    const escolhida =
+                        pergunta.querySelector(".selecionada");
+
+
+                    if (escolhida) {
+
+                        respondidas++;
+
+
+                        if (
+                            escolhida.dataset.correta === "true"
+                        ) {
+
+                            pontos++;
+
+                        }
+
+                    }
+
+                });
+
+
+                const resultado =
+                    document.getElementById("resultado");
+
+
+                const pontuacao =
+                    document.getElementById("pontuacao");
+
+
+                resultado.style.display = "block";
+
+
+                pontuacao.innerHTML =
+                    `
+                    Você acertou
+                    <strong>${pontos}</strong>
+                    de
+                    <strong>${perguntas.length}</strong>
+                    perguntas!
+
+                    <br><br>
+
+                    Você respondeu
+                    <strong>${respondidas}</strong>
+                    perguntas.
+                    `;
+
+
+                resultado.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            });
+
+
+        /* TENTAR NOVAMENTE */
+
+        document
+            .getElementById("novamente")
+            .addEventListener("click", function() {
+
+
+                perguntas.forEach(pergunta => {
+
+                    const alternativas =
+                        pergunta.querySelectorAll(".alternativa");
+
+
+                    alternativas.forEach(alternativa => {
+
+                        alternativa.classList.remove(
+                            "selecionada"
+                        );
+
+                    });
+
+                });
+
+
+                document
+                    .getElementById("resultado")
+                    .style.display = "none";
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>
