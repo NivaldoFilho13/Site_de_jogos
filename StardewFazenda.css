@@ -1,387 +1,251 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #87CEEB;
-    color: #333;
-}
-
-h1, h2, h3 {
-    margin-top: 0;
-}
-
-
-/* HEADER */
-
-header {
-    background-color: #2e8b57;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 5px solid #226b42;
-}
-
-header h1 {
-    margin-bottom: 8px;
-}
-
-
-/* LAYOUT */
-
-.container {
-    display: flex;
-    min-height: 100vh;
-}
-
-
-/* SIDEBAR */
-
-aside {
-    width: 200px;
-    padding: 15px;
-    background-color: #246b45;
-    color: white;
-    box-sizing: border-box;
-}
-
-aside h3 {
-    text-align: center;
-    border-bottom: 2px solid white;
-    padding-bottom: 10px;
-}
-
-aside a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin: 15px 0;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-aside a:hover {
-    background-color: #3cb371;
-    color: yellow;
-    transform: translateX(5px);
-}
-
-
-/* CONTEÚDO PRINCIPAL */
-
-main {
-    flex: 1;
-    padding: 2%;
-    margin-right: 8%;
-    margin-left: 8%;
-    align-items: center;
-}
-
-
-/* FUNDO */
-
-article {
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-
-/* BANNER */
-
-.banner {
-    background-color: #f5d76e;
-    width: 80%;
-    min-height: 180px;
-    border-radius: 15px;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto 20px auto;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    border: 5px solid #8b5a2b;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.banner img {
-    max-width: 80%;
-    max-height: 160px;
-    object-fit: contain;
-}
-
-
-/* CARD PRINCIPAL */
-
-.maincard {
-    background-color: #fff8dc;
-    padding: 20px;
-    margin-top: 15px;
-    border-radius: 15px;
-    text-align: center;
-    display: flex;
-    gap: 25px;
-    border: 3px solid #8b5a2b;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-}
-
-
-/* CONTEÚDO */
-
-.conteudo {
-    margin-left: 3%;
-    margin-right: 3%;
-    flex: 1;
-}
-
-
-/* TÍTULOS */
-
-.titlebox {
-    background-color: #2e8b57;
-    color: white;
-    margin-bottom: 0;
-    padding: 8px;
-    border-radius: 8px 8px 0 0;
-    border-bottom: 3px solid #1f633d;
-}
-
-.titlebox h2 {
-    margin: 0;
-}
-
-
-/* TEXTOS */
-
-.textbox {
-    background-color: #f1e5bd;
-    color: #333;
-    padding: 10px;
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-radius: 0 0 8px 8px;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-.textbox p {
-    margin: 8px;
-}
-
-
-/* IMAGENS DO CARD PRINCIPAL */
-
-.imagenss {
-    width: 220px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-}
-
-.imagenss img {
-    width: 200px;
-    border-radius: 12px;
-    border: 5px solid #8b5a2b;
-    background-color: white;
-    transition: 0.3s;
-}
-
-.imagenss img:hover {
-    transform: scale(1.05);
-}
-
-
-/* CARDS */
-
-.card {
-    background-color: #fff8dc;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 15px;
-    text-align: center;
-    border: 3px solid #8b5a2b;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-}
-
-.card h2 {
-    color: #246b45;
-    border-bottom: 3px solid #d6a84f;
-    padding-bottom: 10px;
-}
-
-
-/* QUADRADOS DAS FAZENDAS */
-
-.area-quadrados {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.quadrado {
-    width: 190px;
-    min-height: 215px;
-    background-color: #2e8b57;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 12px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 4px solid #1f633d;
-}
-
-.quadrado img {
-    width: 165px;
-    height: 165px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 3px solid white;
-}
-
-.quadrado span {
-    padding: 8px;
-}
-
-.quadrado:hover {
-    background-color: #3cb371;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-
-/* ÁREA DE ESCOLHA */
-
-.escolha-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.escolha-box {
-    background-color: #e7d59d;
-    width: 220px;
-    padding: 15px;
-    border-radius: 10px;
-    border: 3px solid #8b5a2b;
-    transition: 0.3s;
-}
-
-.escolha-box:hover {
-    transform: translateY(-5px);
-    background-color: #f0dfa8;
-}
-
-.escolha-box h3 {
-    color: #246b45;
-}
-
-
-/* DICAS */
-
-.dicas {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    max-width: 600px;
-    margin: auto;
-}
-
-.dicas li {
-    background-color: #e7d59d;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border-left: 5px solid #2e8b57;
-    transition: 0.3s;
-}
-
-.dicas li:hover {
-    transform: translateX(5px);
-    background-color: #f0dfa8;
-}
-
-
-/* FOOTER */
-
-footer {
-    background-color: #2e8b57;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-    border-top: 5px solid #246b45;
-}
-
-footer p {
-    margin: 5px;
-}
-
-
-/* RESPONSIVIDADE */
-
-@media (max-width: 900px) {
-
-    .container {
-        flex-direction: column;
-    }
-
-    aside {
-        width: 100%;
-        text-align: center;
-    }
-
-    aside a {
-        display: inline-block;
-        margin: 5px;
-    }
-
-    main {
-        margin: 0;
-        padding: 15px;
-    }
-
-    .maincard {
-        flex-direction: column;
-    }
-
-    .imagenss {
-        width: 100%;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .banner {
-        width: 100%;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .quadrado {
-        width: 100%;
-        max-width: 250px;
-    }
-
-    .imagenss img {
-        width: 160px;
-    }
-
-    .banner {
-        min-height: 130px;
-    }
-
-    .banner img {
-        max-width: 95%;
-    }
-}
+        .fazendas-intro {
+            background-color: #fff8dc;
+            margin-top: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            border: 4px solid #8b5a2b;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .fazendas-intro h1 {
+            color: #246b45;
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .fazendas-intro p {
+            max-width: 850px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .fazendas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+
+        /* =====================================================
+           CARD DA FAZENDA
+        ===================================================== */
+
+        .fazenda-card {
+            background-color: #fff8dc;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 4px solid #8b5a2b;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transition: 0.3s;
+        }
+
+        .fazenda-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* =====================================================
+           IMAGEM
+        ===================================================== */
+
+        .fazenda-imagem {
+            height: 230px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 5px solid #8b5a2b;
+        }
+
+
+        .standard {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/7/7e/Standard_Farm.png");
+        }
+
+        .river {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/9/9d/Riverland_Farm.png");
+        }
+
+        .forest {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/2/2e/Forest_Farm.png");
+        }
+
+        .hill {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/6/6e/Hill-top_Farm.png");
+        }
+
+        .four {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/3/33/Four_Corners_Farm.png");
+        }
+
+        .wilderness {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/4/4a/Wilderness_Farm.png");
+        }
+
+        .beach {
+            background-image:
+                url("https://stardewvalleywiki.com/mediawiki/images/8/8f/Beach_Farm.png");
+        }
+
+
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
+
+        .fazenda-info {
+            padding: 22px;
+        }
+
+        .fazenda-info h2 {
+            color: #246b45;
+            margin-top: 0;
+            font-size: 25px;
+        }
+
+        .fazenda-info p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+
+        /* =====================================================
+           TAGS
+        ===================================================== */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #2e8b57;
+            color: white;
+            padding: 7px 11px;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           PONTOS
+        ===================================================== */
+
+        .pontos {
+            background-color: #f1e5bd;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #d0b878;
+            margin-top: 15px;
+        }
+
+        .pontos strong {
+            color: #246b45;
+        }
+
+        .pontos ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        .pontos li {
+            margin-bottom: 7px;
+        }
+
+
+        /* =====================================================
+           RECOMENDAÇÃO
+        ===================================================== */
+
+        .perfil {
+            background-color: #2e8b57;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            border: 3px solid #1f633d;
+        }
+
+        .perfil strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+
+        /* =====================================================
+           DESTAQUE
+        ===================================================== */
+
+        .destaque-fazenda {
+            grid-column: 1 / -1;
+        }
+
+
+        /* =====================================================
+           VOLTAR
+        ===================================================== */
+
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background-color: #2e8b57;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            border: 3px solid #1f633d;
+            transition: 0.3s;
+        }
+
+        .voltar:hover {
+            background-color: #3cb371;
+            transform: scale(1.04);
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .fazendas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .destaque-fazenda {
+                grid-column: auto;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .fazendas-intro {
+                padding: 20px;
+            }
+
+            .fazenda-imagem {
+                height: 190px;
+            }
+
+            .fazenda-info {
+                padding: 17px;
+            }
+        }
