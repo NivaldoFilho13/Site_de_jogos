@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spider-Man - Jogos</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(circle at 80% 10%, #8b0000, transparent 35%),
+                radial-gradient(circle at 20% 80%, #300000, transparent 35%),
+                #080808;
+
+            color: white;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        header {
+
+            background: #080808;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 4px solid #e30613;
+
+        }
+
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .logo span {
+
+            color: #e30613;
+
+        }
+
+
+        .voltar {
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border: 1px solid #555;
+
+            border-radius: 5px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .voltar:hover {
+
+            background: #e30613;
+
+            border-color: #e30613;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================
+           PÁGINA
+        ========================= */
+
+        .pagina {
+
+            max-width: 1150px;
+
+            margin: 45px auto;
+
+            padding: 0 25px;
+
+        }
+
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .titulo h1 {
+
+            font-size: 52px;
+
+            text-transform: uppercase;
+
+            text-shadow:
+                4px 4px 0 #000,
+                0 0 25px rgba(227, 6, 19, 0.4);
+
+        }
+
+
+        .titulo h1 span {
+
+            color: #e30613;
+
+        }
+
+
+        .titulo p {
+
+            color: #aaa;
+
+            margin-top: 12px;
+
+            font-size: 17px;
+
+        }
+
+
+        .linha {
+
+            width: 100%;
+
+            height: 3px;
+
+            background: #e30613;
+
+            margin-top: 25px;
+
+        }
+
+
+        /* =========================
+           JOGOS
+        ========================= */
+
+        .jogos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+
+            background: #151515;
+
+            border: 1px solid #333;
+
+            border-left: 5px solid #e30613;
+
+            border-radius: 8px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.35);
+
+            transition: 0.25s;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .card::before {
+
+            content: "🕷️";
+
+            position: absolute;
+
+            right: 20px;
+
+            top: 15px;
+
+            font-size: 60px;
+
+            opacity: 0.04;
+
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-7px);
+
+            border-color: #e30613;
+
+            box-shadow:
+                0 10px 30px rgba(227,6,19,0.18);
+
+        }
+
+
+        .numero {
+
+            color: #e30613;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .card h2 {
+
+            font-size: 27px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .ano {
+
+            color: #ff3333;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .card p {
+
+            color: #ccc;
+
+            line-height: 1.7;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           TAGS
+        ========================= */
+
+        .tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 18px;
+
+        }
+
+
+        .tag {
+
+            background: #222;
+
+            border: 1px solid #444;
+
+            color: #ddd;
+
+            padding: 7px 11px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================
+           DESTAQUE
+        ========================= */
+
+        .principal {
+
+            grid-column: 1 / -1;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1a0000,
+                    #151515 55%,
+                    #0d0d0d
+                );
+
+            border-left: 7px solid #e30613;
+
+        }
+
+
+        .principal h2 {
+
+            font-size: 35px;
+
+        }
+
+
+        .principal .ano {
+
+            font-size: 18px;
+
+        }
+
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .botao-jogo {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 11px 18px;
+
+            background: #e30613;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+        }
+
+
+        .botao-jogo:hover {
+
+            background: white;
+
+            color: #e30613;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================
+           EXPLORE
+        ========================= */
+
+        .explore {
+
+            margin-top: 40px;
+
+            background: #151515;
+
+            padding: 30px;
+
+            border-left: 5px solid #e30613;
+
+            border-radius: 7px;
+
+            text-align: center;
+
+        }
+
+
+        .explore h2 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .explore p {
+
+            color: #aaa;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .botoes {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+        }
+
+
+        .botao {
+
+            text-decoration: none;
+
+            color: white;
+
+            background: #e30613;
+
+            padding: 14px 22px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+        }
+
+
+        .botao:hover {
+
+            background: white;
+
+            color: #e30613;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+
+            margin-top: 50px;
+
+            background: #080808;
+
+            color: #777;
+
+            text-align: center;
+
+            padding: 25px;
+
+            border-top: 3px solid #e30613;
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .jogos {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .principal {
+
+                grid-column: auto;
+
+            }
+
+
+            .titulo h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .pagina {
+
+                padding: 0 15px;
+
+            }
+
+
+            .card {
+
+                padding: 22px;
+
+            }
+
+
+            .principal h2 {
+
+                font-size: 29px;
+
+            }
+
+
+            .botoes {
+
+                flex-direction: column;
+
+            }
+
+
+            .botao {
+
+                text-align: center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOPO
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+
+            SPIDER<span>-MAN</span>
+
+        </div>
+
+
+        <a href="spiderman.html" class="voltar">
+
+            ← Voltar
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================
+         CONTEÚDO
+    ========================= -->
+
+    <main class="pagina">
+
+
+        <div class="titulo">
+
+            <h1>
+
+                <span>Jogos</span>
+                Spider-Man
+
+            </h1>
+
+
+            <p>
+
+                Conheça os principais jogos do Homem-Aranha.
+
+            </p>
+
+
+            <div class="linha"></div>
+
+        </div>
+
+
+
+        <div class="jogos">
+
+
+            <!-- =========================
+                 SPIDER-MAN 2018
+            ========================= -->
+
+            <div class="card principal">
+
+                <div class="numero">
+
+                    PRINCIPAL
+
+                </div>
+
+
+                <h2>
+
+                    Marvel's Spider-Man
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2018
+
+                </div>
+
+
+                <p>
+
+                    Desenvolvido pela Insomniac Games, o jogo
+                    acompanha Peter Parker como um Spider-Man
+                    experiente protegendo Nova York.
+
+                </p>
+
+
+                <p>
+
+                    O jogador pode explorar Manhattan usando
+                    as teias, enfrentar diversos vilões,
+                    realizar missões e desbloquear diferentes
+                    trajes e habilidades.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS4
+                    </span>
+
+                    <span class="tag">
+                        🎮 PS5
+                    </span>
+
+                    <span class="tag">
+                        💻 PC
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Peter Parker
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 MILES MORALES
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    JOGO
+
+                </div>
+
+
+                <h2>
+
+                    Marvel's Spider-Man:
+                    Miles Morales
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2020
+
+                </div>
+
+
+                <p>
+
+                    O jogo apresenta Miles Morales como
+                    protagonista enquanto ele aprende a
+                    assumir o papel de Spider-Man.
+
+                </p>
+
+
+                <p>
+
+                    A história acontece em uma versão de
+                    Nova York durante o período de inverno.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS4
+                    </span>
+
+                    <span class="tag">
+                        🎮 PS5
+                    </span>
+
+                    <span class="tag">
+                        💻 PC
+                    </span>
+
+                    <span class="tag">
+                        ⚡ Miles
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SPIDER-MAN 2
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    CONTINUAÇÃO
+
+                </div>
+
+
+                <h2>
+
+                    Marvel's Spider-Man 2
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2023
+
+                </div>
+
+
+                <p>
+
+                    Peter Parker e Miles Morales trabalham
+                    juntos para proteger Nova York enquanto
+                    enfrentam novas ameaças.
+
+                </p>
+
+
+                <p>
+
+                    O jogo apresenta personagens como
+                    Kraven, o Caçador, e Venom, além de uma
+                    cidade maior para explorar.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS5
+                    </span>
+
+                    <span class="tag">
+                        💻 PC
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Peter
+                    </span>
+
+                    <span class="tag">
+                        ⚡ Miles
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SPIDER-MAN 2 REMASTER
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    VERSÃO PC
+
+                </div>
+
+
+                <h2>
+
+                    Marvel's Spider-Man 2
+                    para PC
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2025
+
+                </div>
+
+
+                <p>
+
+                    A versão para PC de Spider-Man 2 trouxe
+                    o jogo para computadores com diversas
+                    opções gráficas e recursos adicionais.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        💻 PC
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Peter
+                    </span>
+
+                    <span class="tag">
+                        ⚡ Miles
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SPIDER-MAN PS1
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    CLÁSSICO
+
+                </div>
+
+
+                <h2>
+
+                    Spider-Man
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2000
+
+                </div>
+
+
+                <p>
+
+                    Um dos jogos clássicos do Homem-Aranha.
+                    O jogador controla Spider-Man em uma
+                    aventura cheia de combates e plataformas.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS1
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Clássico
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SPIDER-MAN 2 PS2
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    CLÁSSICO
+
+                </div>
+
+
+                <h2>
+
+                    Spider-Man 2
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2004
+
+                </div>
+
+
+                <p>
+
+                    Baseado no filme de 2004, o jogo ficou
+                    conhecido por permitir que o jogador
+                    explorasse uma cidade aberta usando
+                    as teias de Spider-Man.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS2
+                    </span>
+
+                    <span class="tag">
+                        🕸️ Mundo aberto
+                    </span>
+
+                    <span class="tag">
+                        🎬 Filme
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 WEB OF SHADOWS
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    AVENTURA
+
+                </div>
+
+
+                <h2>
+
+                    Spider-Man:
+                    Web of Shadows
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2008
+
+                </div>
+
+
+                <p>
+
+                    Spider-Man precisa enfrentar uma ameaça
+                    envolvendo simbiontes enquanto tenta
+                    impedir que a cidade seja tomada.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS3
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Spider-Man
+                    </span>
+
+                    <span class="tag">
+                        🖤 Simbionte
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SHATTERED DIMENSIONS
+            ========================= -->
+
+            <div class="card">
+
+                <div class="numero">
+
+                    MULTIVERSO
+
+                </div>
+
+
+                <h2>
+
+                    Spider-Man:
+                    Shattered Dimensions
+
+                </h2>
+
+
+                <div class="ano">
+
+                    2010
+
+                </div>
+
+
+                <p>
+
+                    O jogo apresenta diferentes versões
+                    do Homem-Aranha vindas de universos
+                    distintos.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🎮 PS3
+                    </span>
+
+                    <span class="tag">
+                        🌌 Multiverso
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Vários Spider-Men
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             EXPLORE
+        ========================= -->
+
+        <section class="explore">
+
+            <h2>
+
+                Explore o site
+
+            </h2>
+
+
+            <p>
+
+                Continue explorando o universo de Spider-Man.
+
+            </p>
+
+
+            <div class="botoes">
+
+
+                <a href="spiderman.html" class="botao">
+
+                    🏠 Início
+
+                </a>
+
+
+                <a href="spidermanwiki.html" class="botao">
+
+                    📖 Wikipedia
+
+                </a>
+
+
+                <a href="spidermanpersonagens.html" class="botao">
+
+                    🕷️ Personagens
+
+                </a>
+
+
+                <a href="spidermanperguntas.html" class="botao">
+
+                    ❓ Perguntas
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        Spider-Man • Jogos
+
+    </footer>
+
+
+</body>
+
+</html>

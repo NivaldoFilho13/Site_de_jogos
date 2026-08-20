@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spider-Man - Personagens</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(circle at 80% 10%, #8b0000, transparent 35%),
+                radial-gradient(circle at 20% 80%, #300000, transparent 35%),
+                #080808;
+
+            color: white;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        header {
+
+            background: #080808;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 4px solid #e30613;
+
+        }
+
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .logo span {
+
+            color: #e30613;
+
+        }
+
+
+        .voltar {
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border: 1px solid #555;
+
+            border-radius: 5px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .voltar:hover {
+
+            background: #e30613;
+
+            border-color: #e30613;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        .pagina {
+
+            max-width: 1150px;
+
+            margin: 45px auto;
+
+            padding: 0 25px;
+
+        }
+
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .titulo h1 {
+
+            font-size: 52px;
+
+            text-transform: uppercase;
+
+            text-shadow:
+                4px 4px 0 #000,
+                0 0 25px rgba(227, 6, 19, 0.4);
+
+        }
+
+
+        .titulo h1 span {
+
+            color: #e30613;
+
+        }
+
+
+        .titulo p {
+
+            color: #aaa;
+
+            margin-top: 12px;
+
+            font-size: 17px;
+
+        }
+
+
+        .linha {
+
+            width: 100%;
+
+            height: 3px;
+
+            background: #e30613;
+
+            margin-top: 25px;
+
+        }
+
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .personagens {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+
+            background: #151515;
+
+            border: 1px solid #333;
+
+            border-left: 5px solid #e30613;
+
+            border-radius: 8px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.35);
+
+            transition: 0.25s;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+
+            height: 120px;
+
+            background: #e30613;
+
+            opacity: 0.05;
+
+            border-radius: 50%;
+
+            right: -40px;
+
+            top: -40px;
+
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-7px);
+
+            border-color: #e30613;
+
+            box-shadow:
+                0 10px 30px rgba(227,6,19,0.18);
+
+        }
+
+
+        .numero {
+
+            color: #e30613;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .card h2 {
+
+            font-size: 26px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .nome {
+
+            color: #e30613;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .card p {
+
+            color: #ccc;
+
+            line-height: 1.7;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        /* =========================
+           TAGS
+        ========================= */
+
+        .tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 18px;
+
+        }
+
+
+        .tag {
+
+            background: #222;
+
+            border: 1px solid #444;
+
+            color: #ddd;
+
+            padding: 7px 11px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================
+           DESTAQUE SPIDER-MAN
+        ========================= */
+
+        .principal {
+
+            grid-column: 1 / -1;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1a0000,
+                    #151515 55%,
+                    #0d0d0d
+                );
+
+            border-left: 7px solid #e30613;
+
+        }
+
+
+        .principal h2 {
+
+            font-size: 34px;
+
+        }
+
+
+        .principal .nome {
+
+            font-size: 17px;
+
+        }
+
+
+        /* =========================
+           VILÕES
+        ========================= */
+
+        .vilao {
+
+            border-left-color: #7d0000;
+
+        }
+
+
+        .vilao .numero {
+
+            color: #ff3333;
+
+        }
+
+
+        /* =========================
+           SEÇÃO FINAL
+        ========================= */
+
+        .explore {
+
+            margin-top: 40px;
+
+            background: #151515;
+
+            padding: 30px;
+
+            border-left: 5px solid #e30613;
+
+            border-radius: 7px;
+
+            text-align: center;
+
+        }
+
+
+        .explore h2 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .explore p {
+
+            color: #aaa;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .botoes {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+        }
+
+
+        .botao {
+
+            text-decoration: none;
+
+            color: white;
+
+            background: #e30613;
+
+            padding: 14px 22px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+        }
+
+
+        .botao:hover {
+
+            background: white;
+
+            color: #e30613;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+
+            margin-top: 50px;
+
+            background: #080808;
+
+            color: #777;
+
+            text-align: center;
+
+            padding: 25px;
+
+            border-top: 3px solid #e30613;
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .personagens {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .principal {
+
+                grid-column: auto;
+
+            }
+
+
+            .titulo h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .pagina {
+
+                padding: 0 15px;
+
+            }
+
+
+            .card {
+
+                padding: 20px;
+
+            }
+
+
+            .principal h2 {
+
+                font-size: 28px;
+
+            }
+
+
+            .botoes {
+
+                flex-direction: column;
+
+            }
+
+
+            .botao {
+
+                text-align: center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOPO
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+
+            SPIDER<span>-MAN</span>
+
+        </div>
+
+
+        <a href="spiderman.html" class="voltar">
+
+            ← Voltar
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================
+         PÁGINA
+    ========================= -->
+
+    <main class="pagina">
+
+
+        <div class="titulo">
+
+            <h1>
+
+                <span>Personagens</span>
+
+                Spider-Man
+
+            </h1>
+
+
+            <p>
+
+                Conheça os principais personagens de Marvel's Spider-Man.
+
+            </p>
+
+
+            <div class="linha"></div>
+
+        </div>
+
+
+
+        <!-- =========================
+             PERSONAGENS
+        ========================= -->
+
+        <div class="personagens">
+
+
+            <!-- PETER PARKER -->
+
+            <div class="card principal">
+
+                <div class="numero">
+                    PERSONAGEM PRINCIPAL
+                </div>
+
+
+                <h2>
+                    Peter Parker
+                </h2>
+
+
+                <div class="nome">
+                    Spider-Man
+                </div>
+
+
+                <p>
+
+                    Peter Parker é o protagonista de Marvel's
+                    Spider-Man. Ele já atua como Spider-Man há
+                    vários anos quando a história começa.
+
+                </p>
+
+
+                <p>
+
+                    Além de proteger Nova York, Peter precisa
+                    equilibrar sua vida pessoal, seu trabalho
+                    científico e suas responsabilidades como
+                    super-herói.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🕷️ Herói
+                    </span>
+
+                    <span class="tag">
+                        🧪 Cientista
+                    </span>
+
+                    <span class="tag">
+                        🕸️ Teias
+                    </span>
+
+                    <span class="tag">
+                        Nova York
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MARY JANE -->
+
+            <div class="card">
+
+                <div class="numero">
+                    ALIADA
+                </div>
+
+
+                <h2>
+                    Mary Jane Watson
+                </h2>
+
+
+                <div class="nome">
+                    Mary Jane
+                </div>
+
+
+                <p>
+
+                    Mary Jane é uma jornalista investigativa
+                    e uma das pessoas mais importantes na vida
+                    de Peter Parker.
+
+                </p>
+
+
+                <p>
+
+                    Durante a história, ela participa de
+                    investigações e acaba se envolvendo
+                    diretamente com diversos acontecimentos.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        📰 Jornalista
+                    </span>
+
+                    <span class="tag">
+                        🔎 Investigadora
+                    </span>
+
+                    <span class="tag">
+                        Aliada
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MILES -->
+
+            <div class="card">
+
+                <div class="numero">
+                    PERSONAGEM IMPORTANTE
+                </div>
+
+
+                <h2>
+                    Miles Morales
+                </h2>
+
+
+                <div class="nome">
+                    Miles
+                </div>
+
+
+                <p>
+
+                    Miles Morales é um jovem de Nova York que
+                    conhece Peter Parker e acaba tendo uma
+                    participação importante na história.
+
+                </p>
+
+
+                <p>
+
+                    Sua relação com Peter se torna ainda mais
+                    importante ao longo dos acontecimentos
+                    da franquia.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🧑 Jovem
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Aliado
+                    </span>
+
+                    <span class="tag">
+                        Nova York
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OTTO -->
+
+            <div class="card">
+
+                <div class="numero">
+                    CIENTISTA
+                </div>
+
+
+                <h2>
+                    Otto Octavius
+                </h2>
+
+
+                <div class="nome">
+                    Doutor Octopus
+                </div>
+
+
+                <p>
+
+                    Otto Octavius é um cientista brilhante e
+                    mentor de Peter Parker.
+
+                </p>
+
+
+                <p>
+
+                    Sua pesquisa e suas decisões acabam
+                    desempenhando um papel fundamental
+                    nos acontecimentos da história.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🧪 Cientista
+                    </span>
+
+                    <span class="tag">
+                        🦾 Tecnologia
+                    </span>
+
+                    <span class="tag">
+                        Vilão
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MARTIN LI -->
+
+            <div class="card vilao">
+
+                <div class="numero">
+                    VILÃO
+                </div>
+
+
+                <h2>
+                    Martin Li
+                </h2>
+
+
+                <div class="nome">
+                    Senhor Negativo
+                </div>
+
+
+                <p>
+
+                    Martin Li é uma figura respeitada por
+                    sua atuação comunitária e pelo trabalho
+                    realizado através da F.E.A.S.T.
+
+                </p>
+
+
+                <p>
+
+                    Porém, ele também possui uma identidade
+                    secreta como Senhor Negativo e lidera
+                    os Inner Demons.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        😈 Vilão
+                    </span>
+
+                    <span class="tag">
+                        ⚡ Poderes
+                    </span>
+
+                    <span class="tag">
+                        Inner Demons
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NORMAN -->
+
+            <div class="card">
+
+                <div class="numero">
+                    OSCORP
+                </div>
+
+
+                <h2>
+                    Norman Osborn
+                </h2>
+
+
+                <div class="nome">
+                    Prefeito de Nova York
+                </div>
+
+
+                <p>
+
+                    Norman Osborn é o prefeito de Nova York
+                    e fundador da Oscorp.
+
+                </p>
+
+
+                <p>
+
+                    Ele possui uma relação importante com
+                    vários personagens e acontecimentos
+                    da história.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🏢 Oscorp
+                    </span>
+
+                    <span class="tag">
+                        👔 Prefeito
+                    </span>
+
+                    <span class="tag">
+                        Empresário
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- YURI -->
+
+            <div class="card">
+
+                <div class="numero">
+                    POLÍCIA
+                </div>
+
+
+                <h2>
+                    Yuri Watanabe
+                </h2>
+
+
+                <div class="nome">
+                    Capitã da polícia
+                </div>
+
+
+                <p>
+
+                    Yuri Watanabe é uma policial de Nova York
+                    que mantém contato frequente com
+                    Spider-Man.
+
+                </p>
+
+
+                <p>
+
+                    Ela ajuda Peter em diversas situações
+                    relacionadas aos crimes que acontecem
+                    pela cidade.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        👮 Polícia
+                    </span>
+
+                    <span class="tag">
+                        🕷️ Aliada
+                    </span>
+
+                    <span class="tag">
+                        Nova York
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SILVER SABLE -->
+
+            <div class="card">
+
+                <div class="numero">
+                    MERCENÁRIA
+                </div>
+
+
+                <h2>
+                    Silver Sable
+                </h2>
+
+
+                <div class="nome">
+                    Silver Sablinova
+                </div>
+
+
+                <p>
+
+                    Silver Sable é uma mercenária altamente
+                    treinada e líder da Sable International.
+
+                </p>
+
+
+                <p>
+
+                    Ela chega a Nova York para combater
+                    ameaças durante a crise que toma conta
+                    da cidade.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        ⚔️ Combate
+                    </span>
+
+                    <span class="tag">
+                        🛡️ Sable
+                    </span>
+
+                    <span class="tag">
+                        Mercenária
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KINGPIN -->
+
+            <div class="card vilao">
+
+                <div class="numero">
+                    VILÃO
+                </div>
+
+
+                <h2>
+                    Wilson Fisk
+                </h2>
+
+
+                <div class="nome">
+                    Kingpin
+                </div>
+
+
+                <p>
+
+                    Wilson Fisk é um poderoso criminoso que
+                    controla uma grande organização criminosa
+                    em Nova York.
+
+                </p>
+
+
+                <p>
+
+                    Ele é um dos primeiros grandes inimigos
+                    enfrentados por Spider-Man na história.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        👊 Vilão
+                    </span>
+
+                    <span class="tag">
+                        💰 Crime
+                    </span>
+
+                    <span class="tag">
+                        Kingpin
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RHINO -->
+
+            <div class="card vilao">
+
+                <div class="numero">
+                    VILÃO
+                </div>
+
+
+                <h2>
+                    Rhino
+                </h2>
+
+
+                <div class="nome">
+                    Aleksei Sytsevich
+                </div>
+
+
+                <p>
+
+                    Rhino é um dos inimigos clássicos de
+                    Spider-Man e possui enorme força física.
+
+                </p>
+
+
+                <p>
+
+                    Ele utiliza uma poderosa armadura que
+                    aumenta sua resistência e capacidade
+                    de combate.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🦏 Força
+                    </span>
+
+                    <span class="tag">
+                        🛡️ Armadura
+                    </span>
+
+                    <span class="tag">
+                        Vilão
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VULTURE -->
+
+            <div class="card vilao">
+
+                <div class="numero">
+                    VILÃO
+                </div>
+
+
+                <h2>
+                    Vulture
+                </h2>
+
+
+                <div class="nome">
+                    Adrian Toomes
+                </div>
+
+
+                <p>
+
+                    Adrian Toomes é um criminoso que utiliza
+                    uma tecnologia de voo para atacar seus
+                    inimigos.
+
+                </p>
+
+
+                <p>
+
+                    Ele faz parte de um grupo de vilões que
+                    representa uma das maiores ameaças
+                    enfrentadas por Spider-Man.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        🦅 Voo
+                    </span>
+
+                    <span class="tag">
+                        ⚙️ Tecnologia
+                    </span>
+
+                    <span class="tag">
+                        Vilão
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- =========================
+             EXPLORE
+        ========================= -->
+
+        <section class="explore">
+
+            <h2>
+                Explore o site
+            </h2>
+
+
+            <p>
+                Continue explorando o universo de Spider-Man.
+            </p>
+
+
+            <div class="botoes">
+
+
+                <a href="spiderman.html" class="botao">
+                    🏠 Início
+                </a>
+
+
+                <a href="spidermanwiki.html" class="botao">
+                    📖 Wikipedia
+                </a>
+
+
+                <a href="spidermanperguntas.html" class="botao">
+                    ❓ Perguntas
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        Spider-Man • Personagens
+
+    </footer>
+
+
+</body>
+
+</html>
